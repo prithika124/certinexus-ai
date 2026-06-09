@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CertiNexus AI - Workforce Intelligence Platform</title>
+  <meta name="description" content="CertiNexus AI is an enterprise workforce intelligence system and multi-agent certification engine helping teams prepare for technical certifications.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-icon" id="sidebarLogoIcon">C</div>
+        <span class="logo-text" id="sidebarLogoText">CertiNexus AI</span>
+      </div>
+
+      <nav class="sidebar-menu" id="sidebarMenu">
+        <a class="menu-item active" data-tab="dashboard" id="navDashboard">
+          <span class="menu-item-icon">🏠</span>
+          <span>Dashboard</span>
+        </a>
+        <a class="menu-item" data-tab="mission" id="navMission">
+          <span class="menu-item-icon">👑</span>
+          <span>Executive Mission Control</span>
+        </a>
+        <a class="menu-item" data-tab="collaboration" id="navCollaboration">
+          <span class="menu-item-icon">🤖</span>
+          <span>Collaboration Center</span>
+        </a>
+        <a class="menu-item" data-tab="demo" id="navDemo">
+          <span class="menu-item-icon">🚀</span>
+          <span>Demo Mode</span>
+        </a>
+        <a class="menu-item" data-tab="learning" id="navLearning">
+          <span class="menu-item-icon">🗺️</span>
+          <span>Learning Path Agent</span>
+        </a>
+        <a class="menu-item" data-tab="planner" id="navPlanner">
+          <span class="menu-item-icon">📅</span>
+          <span>Study Planner Agent</span>
+        </a>
+        <a class="menu-item" data-tab="assessment" id="navAssessment">
+          <span class="menu-item-icon">✍️</span>
+          <span>Assessment Agent</span>
+        </a>
+        <a class="menu-item" data-tab="command" id="navCommand">
+          <span class="menu-item-icon">🛡️</span>
+          <span>Team Command Center</span>
+        </a>
+        <a class="menu-item" data-tab="manager" id="navManager">
+          <span class="menu-item-icon">📈</span>
+          <span>Manager Insights Agent</span>
+        </a>
+        <a class="menu-item" data-tab="iq" id="navIQ">
+          <span class="menu-item-icon">🧠</span>
+          <span>Microsoft IQ Layers</span>
+        </a>
+        <a class="menu-item" data-tab="journey" id="navJourney">
+          <span class="menu-item-icon">🛣️</span>
+          <span>Journey Map</span>
+        </a>
+        <a class="menu-item" data-tab="knowledge" id="navKnowledge">
+          <span class="menu-item-icon">📚</span>
+          <span>Knowledge Center</span>
+        </a>
+        <a class="menu-item" data-tab="profile" id="navProfile">
+          <span class="menu-item-icon">👤</span>
+          <span>My Profile</span>
+        </a>
+        <a class="menu-item" data-tab="settings" id="navSettings">
+          <span class="menu-item-icon">⚙️</span>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer" id="sidebarFooter">
+        <span>Microsoft Fabric Partner</span>
+      </div>
+    </aside>
+
+    <!-- MAIN WRAPPER -->
+    <div class="main-wrapper">
+      
+      <!-- TOP ACTION BAR -->
+      <header class="top-bar" id="topBar">
+        <div class="search-container" id="topSearchContainer">
+          <span style="font-size: 14px; color: var(--text-secondary);">🔍</span>
+          <input type="text" class="search-input" id="searchInput" placeholder="Search resources, tags, FAQs...">
+        </div>
+
+        <div class="top-bar-right" id="topBarRightPanel">
+          <!-- Cert Progress Indicator -->
+          <div id="topCertIndicator" class="indicator-badge">
+            <!-- Populated dynamically -->
+          </div>
+
+          <!-- Notification Bell -->
+          <button class="icon-btn" id="notificationBtn" title="AI Bulletins">
+            🔔
+            <span class="notification-badge-red" id="notificationRedBadge"></span>
+          </button>
+
+          <!-- Theme Mode Switcher -->
+          <button class="icon-btn" id="themeToggle" title="Toggle Visual Theme">
+            🌙
+          </button>
+
+          <!-- User Context Switcher -->
+          <div class="profile-select-wrapper" id="profileSelectorContainer" onclick="if(event.target.tagName !== 'SELECT') window.CertiNexusApp.switchTab('profile')" title="Click avatar/name to open Profile page">
+            <div class="profile-avatar" id="profileAvatar">P</div>
+            <select class="profile-select" id="profileSelector" title="Active Employee Switcher">
+              <option value="EMP-001">Prithi J (Cloud Eng)</option>
+              <option value="EMP-002">Sarah Jenkins (DevOps)</option>
+              <option value="EMP-003">Alex Rivera (Data Eng)</option>
+              <option value="EMP-007">Liam Chen (Security Analyst)</option>
+            </select>
+          </div>
+        </div>
+      </header>
+
+      <!-- VIEW SHELLS (DYNAMIC SWAP CONTAINER) -->
+      <main class="content-container" id="mainContentView">
+
+        <!-- 0. EXECUTIVE MISSION CONTROL VIEW -->
+        <section class="page-view" id="missionView">
+          <div class="page-header">
+            <h1 class="page-title">Executive Mission Control</h1>
+            <p class="page-subtitle">Unified multi-agent diagnostics mapping the certification path for the selected employee context.</p>
+          </div>
+          <div id="missionControlContent">
+            <!-- Populated dynamically -->
+          </div>
+        </section>
+
+        <!-- 1. DASHBOARD VIEW -->
+        <section class="page-view active" id="dashboardView">
+          <div class="page-header">
+            <h1 class="page-title">Workspace Dashboard</h1>
+            <p class="page-subtitle">Multi-Agent Overview of certification paths and current readiness ratings.</p>
+          </div>
+
+          <!-- AI Executive Briefing Container (Copilot-Style alert) -->
+          <div id="dashExecutiveSummaryContainer"></div>
+
+          <!-- Quick Action Banner for judges -->
+          <div class="card" style="background: linear-gradient(90deg, var(--accent-light), rgba(134, 96, 169, 0.08)); border-color: var(--accent-color); flex-direction:row; align-items:center; justify-content:space-between; padding:16px;">
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <span style="font-weight:700; font-size:14px; color:var(--text-primary);">📊 Multi-Agent Simulation Portal</span>
+              <span style="font-size:12.5px; color:var(--text-secondary);">Watch how collaborating agents sync, schedule, assess, and report progress in real-time.</span>
+            </div>
+            <button class="btn btn-primary" onclick="window.CertiNexusApp.switchTab('demo')" id="btnLaunchDemoWorkflow">Run Agent Simulation</button>
+          </div>
+
+          <!-- AI Insight box slot -->
+          <div id="dashAIInsightBox"></div>
+
+          <div class="grid-layout">
+            <!-- Widget 1: Target Certification Progress -->
+            <div class="card grid-span-2">
+              <div class="card-header">
+                <span class="card-title">🛡️ Certification Target Progress</span>
+                <span class="badge badge-info" id="dashCertTargetCode">AZ-204</span>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:12px; margin-top:5px;">
+                <div style="display:flex; justify-content:space-between; font-size:13.5px; font-weight:600;">
+                  <span style="color:var(--text-secondary);">Module Curriculum Completion</span>
+                  <span style="color:var(--text-primary);" id="dashProgressText">68%</span>
+                </div>
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" id="dashProgressFill" style="width: 68%;"></div>
+                </div>
+                <div style="font-size:12px; color:var(--text-secondary); line-height:1.4; margin-top:5px;">
+                  Calculated based on curated learning modules, video hours, and hands-on laboratory exercises completed.
+                </div>
+              </div>
+            </div>
+
+            <!-- Widget 2: Readiness Score Ring -->
+            <div class="card" style="align-items:center; text-align:center;">
+              <div class="card-title">🎯 Certification Readiness Score</div>
+              <div id="dashReadinessGauge" style="margin: 10px 0;"></div>
+              <div style="font-size:11.5px; color:var(--text-secondary); line-height:1.4;">
+                Composite index measured by practice examination grades, syllabus coverage, and assessment history.
+              </div>
+            </div>
+
+            <!-- Widget 3: Study Hours -->
+            <div class="card" style="justify-content:space-between;">
+              <div class="card-title">⏰ Weekly Study Hours</div>
+              <div class="stat-display" style="margin: 15px 0;">
+                <span class="stat-value" id="dashStudyHoursValue">12</span>
+                <span class="stat-unit">hours completed</span>
+              </div>
+              <span class="badge badge-success" style="align-self: flex-start;">Target: 15h / Week</span>
+            </div>
+
+            <!-- Widget 4: Team Certification Pipeline -->
+            <div class="card">
+              <div class="card-title">💼 Team Certification Pipeline</div>
+              <div id="dashPipelineWidget" style="margin-top:10px;"></div>
+            </div>
+
+            <!-- Widget 5: Workforce Risk Analysis -->
+            <div class="card">
+              <div class="card-title">🚨 Workforce Risk Analysis</div>
+              <div id="dashRiskAnalysisWidget" style="margin-top:10px;"></div>
+            </div>
+
+            <!-- Widget 6: Upcoming Milestones -->
+            <div class="card">
+              <div class="card-title">🏁 Upcoming Milestones</div>
+              <div class="item-list" id="dashMilestonesList">
+                <!-- Milestones injected here -->
+              </div>
+            </div>
+
+            <!-- Widget 7: Skill Gap Heatmap -->
+            <div class="card">
+              <div class="card-title">🗺️ Consolidated Skill Gap Heatmap</div>
+              <div id="dashSkillGapList" style="margin-top:5px;">
+                <!-- Skill gaps heatmap injected here -->
+              </div>
+            </div>
+
+            <!-- Widget 8: Activity Timeline -->
+            <div class="card" id="dashTimelineCard">
+              <div class="card-title">🕒 Real-Time Agent Activity Timeline</div>
+              <div id="dashTimelineContainer">
+                <!-- Timeline injected here -->
+              </div>
+            </div>
+
+            <!-- Widget 9: AI Recommendation Card -->
+            <div class="ai-card card grid-span-2">
+              <div class="ai-header">🤖 Agent Recommendation Bulletin</div>
+              <p class="ai-reasoning" id="dashRecommendationText">
+                "Focus on Azure Storage this week. It is currently your lowest-scoring competency (60%)."
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. AGENT COLLABORATION CENTER -->
+        <section class="page-view" id="collaborationView">
+          <div class="page-header">
+            <h1 class="page-title">Agent Collaboration Center</h1>
+            <p class="page-subtitle">Visual workspace showing active pipelines, activity timelines, and logical reasoning grids.</p>
+          </div>
+          <div id="collaborationContent">
+            <!-- Populated dynamically -->
+          </div>
+        </section>
+
+        <!-- 3. DEMO MODE VIEW -->
+        <section class="page-view" id="demoView">
+          <div class="page-header">
+            <h1 class="page-title">Demo Mode Simulation</h1>
+            <p class="page-subtitle">Inter-agent messaging system and joint reasoning pipeline diagnostics designed for hackathon pitches.</p>
+          </div>
+          <div id="demoContent">
+            <!-- Dynamic demo simulation nodes populated here -->
+          </div>
+        </section>
+
+        <!-- 4. LEARNING PATH VIEW -->
+        <section class="page-view" id="learningView">
+          <div class="page-header">
+            <h1 class="page-title">Learning Path Agent</h1>
+            <p class="page-subtitle">Scans competencies and builds tailored training paths for certification tracks.</p>
+          </div>
+          <div id="learningPathContent">
+            <!-- Curator details populated here -->
+          </div>
+        </section>
+
+        <!-- 5. STUDY PLANNER VIEW -->
+        <section class="page-view" id="plannerView">
+          <div class="page-header">
+            <h1 class="page-title">Study Planner Agent</h1>
+            <p class="page-subtitle">Generates study timetables and adapts schedules around active calendar obligations.</p>
+          </div>
+          <div id="studyPlannerContent">
+            <!-- Planner details populated here -->
+          </div>
+        </section>
+
+        <!-- 6. ASSESSMENT VIEW -->
+        <section class="page-view" id="assessmentView">
+          <div class="page-header">
+            <h1 class="page-title">Assessment Agent</h1>
+            <p class="page-subtitle">Tests comprehension levels and measures competency profiles via adaptive queries.</p>
+          </div>
+          <div id="assessmentContent">
+            <!-- Quiz and metrics populated here -->
+          </div>
+        </section>
+
+        <!-- 7. TEAM COMMAND CENTER -->
+        <section class="page-view" id="commandView">
+          <div class="page-header">
+            <h1 class="page-title">Team Readiness Command Center</h1>
+            <p class="page-subtitle">Unified workforce analytics comparing Team Alpha, Beta, and Gamma indicators.</p>
+          </div>
+          <div id="commandContent">
+            <!-- Command Center views populated here -->
+          </div>
+        </section>
+
+        <!-- 8. MANAGER INSIGHTS VIEW -->
+        <section class="page-view" id="managerView">
+          <div class="page-header">
+            <h1 class="page-title">Manager Insights Agent</h1>
+            <p class="page-subtitle">Gives team leads transparency over certification progress and operational risks.</p>
+          </div>
+          <div id="managerInsightsContent">
+            <!-- Manager reports populated here -->
+          </div>
+        </section>
+
+        <!-- 9. MICROSOFT IQ LAYERS -->
+        <section class="page-view" id="iqView">
+          <div class="page-header">
+            <h1 class="page-title">Microsoft IQ Intelligence Layers</h1>
+            <p class="page-subtitle">Visual architecture of grounded knowledge, workload context, and skill dependency networks.</p>
+          </div>
+          <div id="iqContent">
+            <!-- IQ layers graphics populated here -->
+          </div>
+        </section>
+
+        <!-- 10. JOURNEY MAP -->
+        <section class="page-view" id="journeyView">
+          <div class="page-header">
+            <h1 class="page-title">Certification Journey Map</h1>
+            <p class="page-subtitle">Candidate pipeline stages tracking preparation checkpoints and vouchers.</p>
+          </div>
+          <div id="journeyContent">
+            <!-- Journey timeline maps here -->
+          </div>
+        </section>
+
+        <!-- 11. TEAM ANALYTICS VIEW -->
+        <section class="page-view" id="analyticsView">
+          <div class="page-header">
+            <h1 class="page-title">Enterprise Team Analytics</h1>
+            <p class="page-subtitle">Historical indices on pass rates, study efficiency, and skill levels.</p>
+          </div>
+          <div id="teamAnalyticsContent">
+            <!-- Deep analytics charts here -->
+          </div>
+        </section>
+
+        <!-- 12. KNOWLEDGE CENTER VIEW -->
+        <section class="page-view" id="knowledgeView">
+          <div class="page-header">
+            <h1 class="page-title">Enterprise Knowledge Center</h1>
+            <p class="page-subtitle">Find documents, deployment tutorials, test guidelines, and FAQs.</p>
+          </div>
+          <div id="knowledgeContent">
+            <!-- Searchable knowledge base content here -->
+          </div>
+        </section>
+
+        <!-- 13. USER PROFILE VIEW -->
+        <section class="page-view" id="profileView">
+          <div class="page-header">
+            <h1 class="page-title">My Profile Dashboard</h1>
+            <p class="page-subtitle">Individual certification progress, badges earned, and readiness history statistics.</p>
+          </div>
+          <div id="profileContent">
+            <!-- User profile stats populated here -->
+          </div>
+        </section>
+
+        <!-- 14. SETTINGS VIEW -->
+        <section class="page-view" id="settingsView">
+          <div class="page-header">
+            <h1 class="page-title">Configuration Settings</h1>
+            <p class="page-subtitle">Manage UI display attributes and AI agent operational constraints.</p>
+          </div>
+          <div id="settingsContent">
+            <!-- Settings switches here -->
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER FOR NOTIFICATIONS -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- IMPORT JAVASCRIPT MODULES -->
+  <script src="js/data.js"></script>
+  <script src="js/agents.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
