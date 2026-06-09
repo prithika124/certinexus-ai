@@ -1,4 +1,4 @@
-# CertiNexus AI:Multi-Agent Workforce Certification Intelligence Platform
+# CertiNexus AI
 
 ### Multi-Agent Workforce Certification Intelligence Platform
 
