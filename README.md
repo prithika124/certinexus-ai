@@ -277,3 +277,15 @@ Track: Reasoning Agents
 Category: Multi-Agent Workforce Certification Intelligence
 
 ---
+
+## Screenshots
+
+!Screenshot 2026-06-10 170602.png
+!Screenshot 2026-06-10 170728.png
+!Screenshot 2026-06-10 170756.png
+!Screenshot 2026-06-10 170809.png
+!Screenshot 2026-06-10 170824.png
+!Screenshot 2026-06-10 170851.png
+!Screenshot 2026-06-10 170920.png
+!Screenshot 2026-06-10 170933.png
+!Screenshot 2026-06-10 170953.png
