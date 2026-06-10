@@ -219,6 +219,15 @@ The system:
 
 ---
 
+## 🎥 Demo Video
+
+Watch the project demo here:
+
+https://drive.google.com/file/d/1E-R-lj-NLU4I9i14gxyShhZYephqNAj3/view?usp=sharing
+
+
+---
+
 ## Technical Stack
 
 Frontend
